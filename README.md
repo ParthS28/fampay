@@ -28,3 +28,6 @@ After this, you should be able to make calls on postman and get details of video
 - [ ]  Currently, not checking whether a video already exists in the db causing duplication error.
 
 ## Screenshots
+
+
+![alt text](https://github.com/ParthS28/fampay/blob/main/images/screenshot2.png "get videos")
