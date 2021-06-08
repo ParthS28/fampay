@@ -85,6 +85,7 @@ WSGI_APPLICATION = 'fampay.wsgi.application'
 #     }
 # }
 
+### Configuring PostgreSQL database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

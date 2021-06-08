@@ -18,7 +18,9 @@ class GetVideosPagination(PageNumberPagination):
 
 
 class GetVideos(generics.ListAPIView):
-    """View for getting all the videos, order by latest published date."""
+    """
+    View for getting all the videos
+    """
     renderer_classes = [JSONRenderer]
     serializer_class = serializers.VideoSerializer
     pagination_class = GetVideosPagination
@@ -27,6 +29,9 @@ class GetVideos(generics.ListAPIView):
         return models.Video.objects.all().order_by('published_at')
 
 class GetVideosBasedOnTitle(generics.ListAPIView):
+    """
+    View for getting all the videos, based on title, description or partial match with either title or description
+    """
     renderer_classes = [JSONRenderer]
     search_fields = ['video_title', 'description', 'keywords']
     filter_backends = (filters.SearchFilter,)

@@ -2,6 +2,8 @@
 
 Assignment for the backend engineer intern role. 
 
+Note: You might need to update keys.txt with your own keys.
+
 ## Usage
 
 To use, make sure you have docker-compose installed and then run the instruction

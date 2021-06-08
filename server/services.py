@@ -7,12 +7,18 @@ from rake_nltk import Rake
 from . import models
 
 def get_key():
+    """
+    FUnction to get all the keys from keys.txt
+    """
     file = open('./keys.txt')
     keys = file.read().split('\n')
 
     return keys
 
 def select_key(keys):
+    """
+    Select key which is still valid from all the keys available to it
+    """
     SERVICE = 'youtube'
     VERSION = 'v3'
     DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=7)).isoformat()
@@ -33,6 +39,9 @@ def select_key(keys):
         
 
 def youtube_query(query):
+    """
+    Function to run the main query
+    """
     keys = get_key()
     key = select_key(keys)
     if(key == ''):
@@ -56,7 +65,9 @@ def youtube_query(query):
     return results
 
 def get_keywords(title):
-    # rake nltk
+    """
+    Function to get keywords from the title of video
+    """
     rake_obj = Rake()
     rake_obj.extract_keywords_from_text(title)
     phrases = rake_obj.get_ranked_phrases()
@@ -64,6 +75,9 @@ def get_keywords(title):
 
 
 def extract_info(result):
+    """
+    Function to extract relevant information from the result returned by the API
+    """
     info = {
         'video_id': result['id']['videoId'],
         'title' : result['snippet']['title'],
@@ -75,11 +89,17 @@ def extract_info(result):
     return info
 
 def store_in_db(result):
+    """
+    Function to store entries in database
+    """
     info = extract_info(result)
     model_obj = models.Video(video_id=info['video_id'], video_title=info['title'], description=info['description'], thumbnail_url=info['thumbnail_url'], published_at=info['published_at'], keywords=info['keywords'])
     model_obj.save()
 
 async def start_service():
+    """
+    Function where the actual process starts i.e we send queries from here and store them in the database as well in this function.
+    """
     while True:
         search_results = youtube_query('cricket')
         # print(search_results)
@@ -93,6 +113,9 @@ async def start_service():
         await asyncio.sleep(10)
 
 def start():
+    """
+    Target function where the threading begins. target is the callable object to be invoked by the run(). 
+    """
     while True:
         api_keys = get_key()
         if len(api_keys):
