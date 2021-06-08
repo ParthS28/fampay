@@ -13,8 +13,8 @@ from . import serializers
 
 
 class GetVideosPagination(PageNumberPagination):
-    page_size = 20
-    max_page_size = 20
+    page_size = 10
+    max_page_size = 10
 
 
 class GetVideos(generics.ListAPIView):
