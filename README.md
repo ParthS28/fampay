@@ -29,5 +29,13 @@ After this, you should be able to make calls on postman and get details of video
 
 ## Screenshots
 
-
+GET API which returns the stored video data in a paginated response sorted in descending order of published datetime.
 ![alt text](https://github.com/ParthS28/fampay/blob/main/images/screenshot2.png "get videos")
+
+A basic search API to search the stored videos using their title and description.
+
+GET API which returns the stored video data in a paginated response sorted in descending order of published datetime.
+![alt text](https://github.com/ParthS28/fampay/blob/main/images/screenshot3.png "get videos")
+
+
+![alt text](https://github.com/ParthS28/fampay/blob/main/images/screenshot4.png "get videos")
