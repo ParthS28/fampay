@@ -42,7 +42,7 @@ GET API which returns the stored video data in a paginated response sorted in de
 
 Optimise search api, so that it's able to search videos containing partial match for the search query in either video title or description.
 
-![alt text](https://github.com/ParthS28/fampay/blob/main/images/screenshot 5.png "get videos")
+![alt text](https://github.com/ParthS28/fampay/blob/main/images/screenshot5.png "get videos")
 
 
 ![alt text](https://github.com/ParthS28/fampay/blob/main/images/screenshot6.png "get videos")
